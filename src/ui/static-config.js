@@ -9,7 +9,7 @@ export function initStaticConfig() {
   const wa = document.querySelector('[data-config-wa]');
   const out = form.querySelector('[data-length-out]');
   const viewer = document.querySelector('.config__viewer');
-  viewer.style.background = 'url(/img/flotante-1000.webp) center/cover';
+  viewer.style.background = `url(${import.meta.env.BASE_URL}img/flotante-1000.webp) center/cover`;
   const read = () => {
     const v = (n) => form.querySelector(`input[name="${n}"]:checked`)?.value;
     return {

@@ -26,7 +26,11 @@ export function initSmooth(gsap, ScrollTrigger, reduced) {
     if (!el) return;
     e.preventDefault();
     scrollTo(el);
-    history.replaceState(null, '', id);
+    try {
+      history.replaceState(null, '', id);
+    } catch {
+      /* marcos restringidos no permiten cambiar la URL */
+    }
   });
 
   return { lenis, scrollTo };
