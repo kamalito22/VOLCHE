@@ -15,7 +15,7 @@ export function initReveals({ gsap, ScrollTrigger, SplitText, reduced }) {
 
   // --- manifiesto: las palabras se encienden al avanzar
   document.querySelectorAll('[data-words]').forEach((el) => {
-    const split = SplitText.create(el, { type: 'words', wordsClass: 'w' });
+    const split = SplitText.create(el, { type: 'words', wordsClass: 'w', aria: 'none' });
     if (reduced) return;
     gsap.to(split.words, {
       opacity: 1,
@@ -94,6 +94,19 @@ export function initReveals({ gsap, ScrollTrigger, SplitText, reduced }) {
         gsap.to(spin, { timeScale: 1, duration: 1.2, overwrite: true, delay: 0.1 });
       },
     });
+  }
+
+  // --- secciones oscuras: las esquinas se aplanan al llegar arriba
+  if (!reduced) {
+    const r0 = () => `${Math.round(Math.min(52, Math.max(22, window.innerWidth * 0.034)))}px`;
+    for (const el of document.querySelectorAll('.process__pin, .woods, .cta')) {
+      const trigger = el.closest('section') || el;
+      gsap.fromTo(
+        el,
+        { '--r': r0 },
+        { '--r': '0px', ease: 'none', scrollTrigger: { trigger, start: 'top 85%', end: 'top top', scrub: true, invalidateOnRefresh: true } },
+      );
+    }
   }
 
   // --- CTA final: el título se abre

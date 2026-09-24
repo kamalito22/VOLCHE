@@ -2,7 +2,7 @@ import './styles/main.css';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
-import { formatMXN, MODELS, priceFor, WOOD_INFO } from './config.js';
+import { applyDesignFromURL, formatMXN, MODELS, priceFor, WOOD_INFO } from './config.js';
 import { hasWebGL2 } from './ui/webgl.js';
 import { initCollection } from './ui/collection.js';
 import { initContact } from './ui/contact.js';
@@ -40,6 +40,9 @@ for (const el of document.querySelectorAll('[data-from-price]')) {
   el.textContent = formatMXN(unit);
 }
 
+// diseño compartido por enlace (?m=flotante&s=nogal&…#disena)
+const sharedDesign = applyDesignFromURL(document.querySelector('[data-config-form]'));
+
 // la sección del proceso se fija desde el inicio (las posiciones de scroll dependen de ella)
 const timeline = initProcessTimeline({ gsap, ScrollTrigger });
 
@@ -76,6 +79,8 @@ chips.forEach((chip) =>
     speciesName.innerHTML = `<em>${chip.textContent.trim()}</em> · <span class="mono">${info.latin}</span>`;
     gsap.fromTo(speciesName, { autoAlpha: 0, y: 6 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out' });
     hero?.setSpecies(key);
+    const glow = { pino: 'rgba(236, 196, 120, 0.2)', encino: 'rgba(214, 170, 100, 0.18)', parota: 'rgba(214, 140, 84, 0.18)', nogal: 'rgba(160, 104, 64, 0.2)' };
+    document.querySelector('.hero__glow')?.style.setProperty('--glow', glow[key]);
   }),
 );
 
@@ -163,6 +168,16 @@ loader.finish(reduced ? 300 : 1700).then(() => {
   heroIntro();
   ScrollTrigger.sort();
   ScrollTrigger.refresh();
+  if (sharedDesign || location.hash) {
+    const target = sharedDesign ? '#disena' : location.hash;
+    setTimeout(() => {
+      try {
+        smooth.scrollTo(target, { immediate: reduced });
+      } catch {
+        /* hash que no es un selector válido */
+      }
+    }, 350);
+  }
 });
 
 function heroIntro() {
@@ -170,7 +185,7 @@ function heroIntro() {
   if (reduced) return;
   const lines = document.querySelectorAll('[data-hero-line]');
   lines.forEach((line) => {
-    const split = SplitText.create(line, { type: 'chars', mask: 'chars' });
+    const split = SplitText.create(line, { type: 'chars', mask: 'chars', aria: 'none' });
     gsap.from(split.chars, { yPercent: 110, duration: 1.3, ease: 'expo.out', stagger: 0.035, delay: 0.1 });
   });
   gsap.from('[data-hero-fade]', { y: 24, autoAlpha: 0, duration: 1.1, ease: 'expo.out', stagger: 0.08, delay: 0.55 });

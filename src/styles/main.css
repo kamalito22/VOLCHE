@@ -172,6 +172,10 @@ em {
   color: var(--on-dark-soft);
 }
 
+[data-theme='light'] .label span {
+  color: #8a5d22;
+}
+
 .title {
   font-family: var(--serif);
   font-weight: 400;
@@ -782,8 +786,9 @@ em {
   width: min(90vw, 1100px);
   aspect-ratio: 2 / 1;
   translate: -50% -50%;
-  background: radial-gradient(closest-side, rgba(227, 192, 127, 0.16), transparent);
+  background: radial-gradient(closest-side, var(--glow, rgba(227, 192, 127, 0.16)), transparent);
   filter: blur(20px);
+  transition: background 1.2s var(--ease);
   z-index: -1;
   pointer-events: none;
 }
@@ -1280,7 +1285,7 @@ em {
 }
 
 .card {
-  width: clamp(280px, 34vw, 560px);
+  width: clamp(280px, min(34vw, calc((100svh - 260px) * 0.8)), 560px);
   flex: none;
 }
 
@@ -2115,15 +2120,17 @@ em {
   gap: 14px;
   max-width: 46ch;
   opacity: 0;
+  visibility: hidden;
   transform: translateY(20px);
-  transition: opacity 0.5s var(--ease), transform 0.7s var(--ease);
+  transition: opacity 0.5s var(--ease), transform 0.7s var(--ease), visibility 0s linear 0.5s;
   pointer-events: none;
 }
 
 .wood.is-open .wood__info {
   opacity: 1;
+  visibility: visible;
   transform: none;
-  transition-delay: 0.35s;
+  transition-delay: 0.35s, 0.35s, 0s;
   pointer-events: auto;
 }
 
@@ -2245,7 +2252,7 @@ em {
 }
 
 .order__steps .mono {
-  color: #9a6a2c;
+  color: #8a5d22;
 }
 
 .order__steps h3 {
@@ -2392,6 +2399,17 @@ em {
   padding: 0 60px 26px 0;
   color: var(--text-soft);
   max-width: 60ch;
+}
+
+.faq details[open] p {
+  animation: faqIn 0.6s var(--ease);
+}
+
+@keyframes faqIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
 }
 
 @media (max-width: 900px) {
@@ -2554,6 +2572,10 @@ em {
   transform: translateY(0);
 }
 
+.wa-float.is-visible.is-muted {
+  transform: translateY(120px);
+}
+
 .wa-float:hover {
   background: var(--brass-2);
 }
@@ -2622,4 +2644,79 @@ em {
   .manifesto__text .w {
     opacity: 1;
   }
+}
+
+/* ------------------------------------------------------- sin WebGL2 ------ */
+.no-webgl .hero__stage {
+  background: url('/img/macro-parota-1200.webp') 60% 50% / cover no-repeat;
+  opacity: 0.55;
+  mask-image: radial-gradient(70% 70% at 55% 55%, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(70% 70% at 55% 55%, #000 30%, transparent 75%);
+}
+
+.no-webgl .hero__canvas,
+.no-webgl .hero__hint,
+.no-webgl .process__canvas {
+  display: none;
+}
+
+.no-webgl .process__stage {
+  background: url('/img/kit-1000.webp') 70% 50% / cover no-repeat;
+  opacity: 0.35;
+}
+
+.no-webgl .hero__species {
+  display: none;
+}
+
+.hero__stage:focus-visible {
+  outline: none;
+}
+
+.hero__stage:focus-visible .hero__hint {
+  opacity: 1;
+  box-shadow: 0 0 0 2px var(--brass);
+}
+
+/* ------------------------------------------- secciones que "suben" ---- */
+.process__pin,
+.woods,
+.cta {
+  --r: clamp(22px, 3.4vw, 52px);
+  border-radius: var(--r) var(--r) 0 0;
+}
+
+.process,
+.woods,
+.cta {
+  position: relative;
+  z-index: 2;
+  margin-top: calc(-1 * clamp(22px, 3.4vw, 52px));
+}
+
+.process {
+  background: transparent;
+}
+
+/* ------------------------------------------- Ken Burns en maderas ------ */
+@keyframes kenburns {
+  from { transform: scale(1) translate3d(0, 0, 0); }
+  to { transform: scale(1.08) translate3d(-1.5%, -1%, 0); }
+}
+
+.wood.is-open .wood__img {
+  animation: kenburns 14s ease-in-out 1s infinite alternate;
+}
+
+.wood__toggle {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+.wood.is-open .wood__toggle {
+  cursor: default;
 }

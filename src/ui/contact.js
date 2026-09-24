@@ -31,6 +31,17 @@ export function initContact({ ScrollTrigger }) {
       onEnter: () => fab.classList.add('is-visible'),
       onLeaveBack: () => fab.classList.remove('is-visible'),
     });
+    // donde ya hay un botón de WhatsApp propio, el flotante se esconde
+    for (const sel of ['.panel__actions', '.cta']) {
+      const el = document.querySelector(sel);
+      if (!el) continue;
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top bottom',
+        end: 'bottom top',
+        onToggle: (self) => fab.classList.toggle('is-muted', self.isActive),
+      });
+    }
   }
 }
 

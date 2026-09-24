@@ -1,4 +1,4 @@
-import { BRAND, formatMXN, MODELS, priceFor, whatsappLink } from '../config.js';
+import { BRAND, designLink, formatMXN, MODELS, priceFor, whatsappLink } from '../config.js';
 import { toast } from './contact.js';
 
 /** Configurador sin 3D (navegadores sin WebGL2): precio y mensaje. */
@@ -23,7 +23,7 @@ export function initStaticConfig() {
     };
   };
   const msg = (s) =>
-    `Hola ${BRAND.name} 👋 Quiero cotizar: ${MODELS[s.model].long}, ${s.species}, acabado ${s.finish}, ${s.length} × ${s.depth} × ${s.thickness} cm, cantidad ${s.qty}.`;
+    `Hola ${BRAND.name} 👋 Quiero cotizar: ${MODELS[s.model].long}, ${s.species}, acabado ${s.finish}, ${s.length} × ${s.depth} × ${s.thickness} cm, cantidad ${s.qty}. Mi diseño: ${designLink(s)}`;
   const refresh = () => {
     const s = read();
     price.textContent = formatMXN(priceFor(s).total);

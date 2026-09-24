@@ -101,3 +101,37 @@ export function whatsappLink(text) {
   const base = num ? `https://wa.me/${num}` : 'https://wa.me/';
   return `${base}?text=${encodeURIComponent(text)}`;
 }
+
+/** Enlace que reabre el configurador con un diseño concreto. */
+export function designLink(st) {
+  const q = new URLSearchParams({
+    m: st.model,
+    s: st.species,
+    f: st.finish,
+    l: String(st.length),
+    d: String(st.depth),
+    t: String(st.thickness),
+    q: String(st.qty),
+  });
+  return `${location.origin}${location.pathname}?${q}#disena`;
+}
+
+/** Aplica al formulario un diseño recibido por URL. Devuelve true si había uno. */
+export function applyDesignFromURL(form) {
+  const q = new URLSearchParams(location.search);
+  if (!q.has('m')) return false;
+  const pick = (name, v) => {
+    const inp = v && form.querySelector(`input[name="${name}"][value="${CSS.escape(v)}"]`);
+    if (inp) inp.checked = true;
+  };
+  pick('model', q.get('m'));
+  pick('species', q.get('s'));
+  pick('finish', q.get('f'));
+  pick('depth', q.get('d'));
+  pick('thickness', q.get('t'));
+  const l = +q.get('l');
+  if (l >= 40 && l <= 150) form.querySelector('input[name="length"]').value = String(Math.round(l / 5) * 5);
+  const n = +q.get('q');
+  if (n >= 1 && n <= 20) form.querySelector('input[name="qty"]').value = String(n);
+  return true;
+}

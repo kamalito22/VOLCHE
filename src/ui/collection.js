@@ -15,10 +15,10 @@ export function initCollection({ gsap, ScrollTrigger, reduced }) {
         x: () => -dist(),
         ease: 'none',
         scrollTrigger: {
-          trigger: section,
-          start: 'top top',
+          trigger: viewport,
+          start: 'center 52%',
           end: () => `+=${dist()}`,
-          pin: true,
+          pin: section,
           scrub: 0.8,
           invalidateOnRefresh: true,
           anticipatePin: 1,
@@ -29,11 +29,16 @@ export function initCollection({ gsap, ScrollTrigger, reduced }) {
       // leve inclinación de las tarjetas según velocidad
       const cards = track.querySelectorAll('[data-card]');
       const skew = gsap.quickTo(cards, 'skewX', { duration: 0.6, ease: 'power3' });
+      let rest;
       ScrollTrigger.create({
-        trigger: section,
-        start: 'top top',
+        trigger: viewport,
+        start: 'center 52%',
         end: () => `+=${dist()}`,
-        onUpdate: (self) => skew(gsap.utils.clamp(-4, 4, self.getVelocity() / -600)),
+        onUpdate: (self) => {
+          skew(gsap.utils.clamp(-3, 3, self.getVelocity() / -700));
+          clearTimeout(rest);
+          rest = setTimeout(() => skew(0), 140);
+        },
         onLeave: () => skew(0),
         onLeaveBack: () => skew(0),
       });

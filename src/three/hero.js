@@ -90,6 +90,14 @@ export function initHero({ canvas, stageEl, hintEl, gsap, ScrollTrigger, reduced
   };
   stageEl.addEventListener('pointerup', end);
   stageEl.addEventListener('pointercancel', end);
+  stageEl.addEventListener('keydown', (e) => {
+    const k = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }[e.key];
+    if (!k) return;
+    e.preventDefault();
+    st.vYaw += k[0] * 0.09;
+    st.vPitch += k[1] * 0.05;
+    hintEl?.classList.add('is-hidden');
+  });
   stageEl.addEventListener('pointerleave', () => {
     st.tx = 0;
     st.ty = 0;
@@ -131,6 +139,8 @@ export function initHero({ canvas, stageEl, hintEl, gsap, ScrollTrigger, reduced
     st.px += (st.tx - st.px) * Math.min(1, dt * 3);
     st.py += (st.ty - st.py) * Math.min(1, dt * 3);
     spin.rotation.set(st.pitch + st.py * 0.12, st.yaw + st.px * 0.18, 0);
+    // la luz sigue al puntero: el brillo del aceite recorre la veta
+    key.position.set(-2.2 + st.px * 2.8, 2.6 - st.py * 1.4, 2.4);
     const bob = reduced ? 0 : Math.sin(t * 0.9) * 0.018;
     const s = st.scroll;
     float.position.set(st.px * 0.035, bob - st.py * 0.025 + s * 0.55, 0);

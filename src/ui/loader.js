@@ -33,9 +33,10 @@ export function createLoader(gsap) {
         });
       return promise;
     },
-    async finish(minMs = 1500) {
+    async finish(minMs = 1500, maxMs = 6000) {
       const t0 = performance.now();
-      await Promise.allSettled(tasks);
+      // en equipos lentos no esperamos para siempre: el 3D aparece cuando esté listo
+      await Promise.race([Promise.allSettled(tasks), new Promise((r) => setTimeout(r, maxMs))]);
       const wait = Math.max(0, minMs - (performance.now() - t0));
       await new Promise((r) => setTimeout(r, wait));
       await new Promise((r) => gsap.to(state, { shown: 100, duration: 0.5, ease: 'power2.inOut', onUpdate: render, onComplete: r, overwrite: true }));

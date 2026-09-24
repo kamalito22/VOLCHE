@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { BRAND, formatMXN, MODELS, priceFor, whatsappLink } from '../config.js';
+import { BRAND, designLink, formatMXN, MODELS, priceFor, whatsappLink } from '../config.js';
 import { toast } from '../ui/contact.js';
 import { boardGeometry } from './board.js';
 import { createRenderer, Stage, studioEnvironment } from './core.js';
@@ -415,6 +415,7 @@ export function initConfigurator({ canvas, container, form, dimsEl, badgeEl, pri
       `• Medidas: ${st.length} × ${st.depth} × ${st.thickness} cm`,
       `• Cantidad: ${st.qty}`,
       `• Precio estimado: ${formatMXN(pr.total)} MXN`,
+      `Mi diseño: ${designLink(st)}`,
       '¿Me confirman precio final y envío a mi ciudad?',
     ].join('\n');
   }

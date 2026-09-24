@@ -35,6 +35,49 @@ def load(path):
     return im.convert("RGB")
 
 
+def make_og(im):
+    """Imagen para compartir (1200x630): texto sobre ébano + recorte de la foto del hero."""
+    from PIL import ImageDraw, ImageFont
+
+    fonts = os.path.join(HERE, "..", "..", "node_modules", "@fontsource", "instrument-serif", "files")
+    W, H = 1200, 630
+    og = Image.new("RGBA", (W, H), (21, 17, 14, 255))
+    w, h = im.size
+    # zona de la repisa superior (jarrón, lámina)
+    box = (int(w * 0.33), 0, int(w * 0.86), h)
+    photo = im.crop(box)
+    pw = round(photo.width * H / photo.height)
+    photo = photo.resize((pw, H), Image.LANCZOS).convert("RGBA")
+    x0 = W - pw
+    og.alpha_composite(photo, (x0, 0))
+    grad = Image.new("L", (W, 1))
+    for x in range(W):
+        t = 1.0 if x < x0 else max(0.0, 1 - (x - x0) / 170)
+        grad.putpixel((x, 0), int(255 * t ** 1.6))
+    shade = Image.new("RGBA", (W, H), (21, 17, 14, 255))
+    shade.putalpha(grad.resize((W, H)))
+    og = Image.alpha_composite(og, shade)
+    d = ImageDraw.Draw(og)
+    try:
+        serif = ImageFont.truetype(os.path.join(fonts, "instrument-serif-latin-400-normal.woff"), 118)
+        italic = ImageFont.truetype(os.path.join(fonts, "instrument-serif-latin-400-italic.woff"), 118)
+        small = ImageFont.truetype(os.path.join(fonts, "instrument-serif-latin-400-normal.woff"), 46)
+        body = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 22)
+    except OSError:
+        og.convert("RGB").save(os.path.join(HERE, "..", "..", "public", "og.jpg"), "JPEG", quality=86)
+        return
+    d.text((64, 56), "VOLCHE", font=small, fill=(239, 232, 220))
+    d.ellipse((66, 142, 76, 152), fill=(196, 154, 82))
+    d.text((88, 134), "TALLER DE MADERA · HECHO A MANO EN MÉXICO", font=ImageFont.truetype(
+        "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf", 15), fill=(167, 156, 142))
+    d.text((60, 200), "Del tablón", font=serif, fill=(239, 232, 220))
+    d.text((60, 318), "a tu pared.", font=italic, fill=(227, 192, 127))
+    d.text((64, 492), "Repisas de madera maciza, a tu medida.", font=body, fill=(200, 190, 176))
+    d.text((64, 526), "Diseña la tuya en 3D y cotiza por WhatsApp.", font=body, fill=(200, 190, 176))
+    og.convert("RGB").save(os.path.join(HERE, "..", "..", "public", "og.jpg"), "JPEG", quality=88, optimize=True,
+                           progressive=True)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("src")
@@ -52,16 +95,11 @@ def main():
             r = im.resize((w, h), Image.LANCZOS) if w < im.width else im.copy()
             if w < im.width:
                 r = r.filter(ImageFilter.UnsharpMask(radius=0.6, percent=40, threshold=2))
-            r.save(os.path.join(OUT, f"{name}-{w}.webp"), "WEBP", quality=82, method=6)
+            q = 88 if key.startswith("macro") else 84
+            r.save(os.path.join(OUT, f"{name}-{w}.webp"), "WEBP", quality=q, method=6)
         print("ok", name, im.size)
         if key == "hero":
-            # imagen para redes sociales 1200x630
-            w, h = im.size
-            ch = round(w * 630 / 1200)
-            top = max(0, (h - ch) // 2)
-            og = im.crop((0, top, w, top + ch)).resize((1200, 630), Image.LANCZOS)
-            og.save(os.path.join(HERE, "..", "..", "public", "og.jpg"), "JPEG", quality=86, optimize=True,
-                    progressive=True)
+            make_og(im)
 
 
 if __name__ == "__main__":
