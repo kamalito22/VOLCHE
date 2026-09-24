@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.vercel/
+*.log
+.DS_Store
+
+# renders y cachés locales de Blender
+tools/render/.texcache/
+tools/render/out/
+tools/**/__pycache__/
+.venv/
+lab/
