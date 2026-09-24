@@ -1,0 +1,182 @@
+{
+  "species": {
+    "pino": {
+      "label": "Pino",
+      "ring": 0.55,
+      "ring_var": 0.22,
+      "late_a": 0.58,
+      "late_b": 0.93,
+      "line": 0.55,
+      "early": "#dfbb87",
+      "late": "#bd8246",
+      "line_col": "#a0622b",
+      "warp_a": 0.34,
+      "warp_b": 0.025,
+      "warp_sx": 0.02,
+      "warp_s": 0.12,
+      "streak1": 0.055,
+      "streak2": 0.061,
+      "streak3": 0.055,
+      "colvar": 0.06,
+      "mineral": 0.0,
+      "pore": 0,
+      "pore_amt": 0.0,
+      "pore_col": "#8a5a2c",
+      "sap_r": 999.0,
+      "sap": "#e8d3a8",
+      "knots": 2.0,
+      "knot_col": "#9a5a2a",
+      "knot_col2": "#6a3514",
+      "ribbon": 0.0,
+      "pith": [
+        -4.0,
+        -15.0
+      ],
+      "tilt": [
+        0.004,
+        0.018
+      ],
+      "rough": 0.5
+    },
+    "encino": {
+      "label": "Encino",
+      "ring": 0.32,
+      "ring_var": 0.3,
+      "late_a": 0.28,
+      "late_b": 0.96,
+      "line": 0.2,
+      "early": "#caa06a",
+      "late": "#ad7d4b",
+      "line_col": "#936437",
+      "warp_a": 0.28,
+      "warp_b": 0.022,
+      "warp_sx": 0.02,
+      "warp_s": 0.13,
+      "streak1": 0.05,
+      "streak2": 0.068,
+      "streak3": 0.055,
+      "colvar": 0.05,
+      "mineral": 0.0,
+      "pore": 1,
+      "pore_amt": 0.85,
+      "pore_col": "#6e4a2a",
+      "sap_r": 999.0,
+      "sap": "#d8c09a",
+      "knots": 0.0,
+      "knot_col": "#5a3a22",
+      "knot_col2": "#3d2616",
+      "ribbon": 0.0,
+      "pith": [
+        3.0,
+        -26.0
+      ],
+      "tilt": [
+        -0.003,
+        0.013
+      ],
+      "rough": 0.55
+    },
+    "parota": {
+      "label": "Parota",
+      "ring": 0.7,
+      "ring_var": 0.35,
+      "late_a": 0.3,
+      "late_b": 0.97,
+      "line": 0.25,
+      "early": "#98653e",
+      "late": "#7c4f30",
+      "line_col": "#5e3a22",
+      "warp_a": 0.45,
+      "warp_b": 0.04,
+      "warp_sx": 0.03,
+      "warp_s": 0.1,
+      "streak1": 0.075,
+      "streak2": 0.068,
+      "streak3": 0.055,
+      "colvar": 0.08,
+      "mineral": 0.16,
+      "pore": 2,
+      "pore_amt": 0.45,
+      "pore_col": "#4d3019",
+      "sap_r": 47.0,
+      "sap": "#dcc195",
+      "knots": 0.0,
+      "knot_col": "#4a2c18",
+      "knot_col2": "#2f1c10",
+      "ribbon": 0.05,
+      "pith": [
+        -6.0,
+        -40.0
+      ],
+      "tilt": [
+        0.01,
+        0.008
+      ],
+      "rough": 0.48
+    },
+    "nogal": {
+      "label": "Nogal",
+      "ring": 0.42,
+      "ring_var": 0.3,
+      "late_a": 0.35,
+      "late_b": 0.97,
+      "line": 0.3,
+      "early": "#6d4930",
+      "late": "#5b3a25",
+      "line_col": "#45291a",
+      "warp_a": 0.36,
+      "warp_b": 0.03,
+      "warp_sx": 0.025,
+      "warp_s": 0.12,
+      "streak1": 0.07,
+      "streak2": 0.068,
+      "streak3": 0.055,
+      "colvar": 0.07,
+      "mineral": 0.1,
+      "pore": 2,
+      "pore_amt": 0.6,
+      "pore_col": "#2e1d12",
+      "sap_r": 31.5,
+      "sap": "#c9a376",
+      "knots": 0.0,
+      "knot_col": "#3a2416",
+      "knot_col2": "#24160d",
+      "ribbon": 0.0,
+      "pith": [
+        7.0,
+        -22.0
+      ],
+      "tilt": [
+        -0.006,
+        0.014
+      ],
+      "rough": 0.46
+    }
+  },
+  "finishes": {
+    "natural": {
+      "sat": 1.0,
+      "bright": 1.0,
+      "tint": null,
+      "tint_amt": 0.0,
+      "rough": 0.0,
+      "late_boost": 0.0
+    },
+    "tostado": {
+      "sat": 1.1,
+      "bright": 0.74,
+      "tint": "#4a2812",
+      "tint_amt": 0.16,
+      "rough": 0.1,
+      "late_boost": 0.38
+    },
+    "ceniza": {
+      "sat": 0.22,
+      "bright": 1.05,
+      "tint": "#a8a298",
+      "tint_amt": 0.45,
+      "rough": 0.16,
+      "late_boost": 0.0
+    }
+  }
+}

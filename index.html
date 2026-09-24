@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>VOLCHE — Repisas de madera maciza hechas a mano</title>
+    <meta
+      name="description"
+      content="Repisas flotantes, con ménsulas y toalleros de madera maciza (parota, nogal, encino y pino) cortadas a tu medida y hechas a mano en México. Diseña la tuya en 3D y cotiza por WhatsApp."
+    />
+    <meta name="theme-color" content="#15110e" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="VOLCHE — Del tablón a tu pared" />
+    <meta
+      property="og:description"
+      content="Repisas de madera maciza hechas a mano en México. Diseña la tuya en 3D: modelo, madera, acabado y medida."
+    />
+    <meta property="og:image" content="/og.jpg" />
+    <meta property="og:locale" content="es_MX" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body class="is-loading">
+    <!-- Preloader -->
+    <div class="loader" data-loader aria-hidden="true">
+      <svg class="loader__rings" viewBox="0 0 200 200" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="0.6">
+          <path d="M100 96c5 0 8 3 8 7s-4 8-9 8-9-4-9-9 5-10 11-10 12 5 12 12-6 14-14 14-15-7-15-15 7-17 17-17" />
+          <ellipse cx="101" cy="102" rx="30" ry="27" />
+          <ellipse cx="102" cy="101" rx="42" ry="38" transform="rotate(-6 102 101)" />
+          <ellipse cx="100" cy="103" rx="55" ry="50" transform="rotate(4 100 103)" />
+          <ellipse cx="101" cy="100" rx="68" ry="63" transform="rotate(-3 101 100)" />
+          <ellipse cx="100" cy="101" rx="82" ry="76" transform="rotate(5 100 101)" />
+          <ellipse cx="100" cy="100" rx="95" ry="90" transform="rotate(-2 100 100)" />
+        </g>
+      </svg>
+      <div class="loader__brand"><span>V</span><span>O</span><span>L</span><span>C</span><span>H</span><span>E</span></div>
+      <div class="loader__meta">
+        <span class="mono">Preparando el taller</span>
+        <span class="mono loader__count" data-loader-count>000</span>
+      </div>
+      <div class="loader__bar"><i data-loader-bar></i></div>
+    </div>
+
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor" aria-hidden="true">
+      <div class="cursor__ring"><span class="cursor__label" data-cursor-label></span></div>
+      <div class="cursor__dot"></div>
+    </div>
+
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+
+    <!-- Navegación -->
+    <header class="nav" data-nav>
+      <a class="nav__brand" href="#inicio" aria-label="VOLCHE, inicio">
+        <span class="nav__logo">VOLCHE</span>
+        <span class="nav__sub mono">Taller de madera</span>
+      </a>
+      <nav class="nav__links" aria-label="Principal">
+        <a href="#coleccion">Colección</a>
+        <a href="#ensamble">Proceso</a>
+        <a href="#disena">Diseña la tuya</a>
+        <a href="#maderas">Maderas</a>
+        <a href="#preguntas">Preguntas</a>
+      </nav>
+      <a class="btn btn--brass btn--sm nav__cta" data-wa="Hola VOLCHE, quiero cotizar una repisa." data-magnetic href="#"
+        ><span>Cotizar</span></a
+      >
+      <button class="nav__burger" type="button" aria-label="Abrir menú" aria-expanded="false" data-burger>
+        <i></i><i></i>
+      </button>
+    </header>
+    <div class="menu" data-menu aria-hidden="true">
+      <nav class="menu__links" aria-label="Menú móvil">
+        <a href="#coleccion"><span class="mono">01</span>Colección</a>
+        <a href="#ensamble"><span class="mono">02</span>Proceso</a>
+        <a href="#disena"><span class="mono">03</span>Diseña la tuya</a>
+        <a href="#maderas"><span class="mono">04</span>Maderas</a>
+        <a href="#preguntas"><span class="mono">05</span>Preguntas</a>
+      </nav>
+      <a class="btn btn--brass" data-wa="Hola VOLCHE, quiero cotizar una repisa." href="#"><span>Cotizar por WhatsApp</span></a>
+    </div>
+
+    <main id="contenido">
+      <!-- HERO -->
+      <section class="hero" id="inicio" data-theme="dark" aria-label="Inicio">
+        <div class="hero__glow" aria-hidden="true"></div>
+        <p class="hero__eyebrow mono" data-hero-fade>
+          <span class="dot"></span> Taller de madera · Hecho a mano en México
+        </p>
+        <h1 class="hero__title" aria-label="Del tablón a tu pared">
+          <span class="hero__line hero__line--back" data-hero-line>Del tablón</span>
+          <span class="hero__line hero__line--front" data-hero-line><em>a tu pared.</em></span>
+        </h1>
+        <div class="hero__stage" data-hero-stage data-cursor="Arrastra">
+          <canvas class="hero__canvas" data-hero-canvas aria-label="Tablón de madera en 3D. Arrastra para girarlo." role="img"></canvas>
+          <p class="hero__hint mono" data-hero-hint>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3" /><path d="M18 3v4h-4M6 21v-4h4" /></svg>
+            Arrastra para girar
+          </p>
+        </div>
+        <div class="hero__bottom">
+          <p class="hero__lead" data-hero-fade>
+            Repisas y muebles de madera maciza, cortados a tu medida, lijados a mano y terminados con aceites naturales.
+            <strong>Cada veta es irrepetible.</strong>
+          </p>
+          <div class="hero__species" data-hero-fade>
+            <p class="mono hero__species-label">Elige la madera</p>
+            <div class="chips" role="radiogroup" aria-label="Madera del tablón" data-hero-species>
+              <button type="button" role="radio" class="chip" data-species="pino" aria-checked="false"><i class="sw sw--pino"></i>Pino</button>
+              <button type="button" role="radio" class="chip" data-species="encino" aria-checked="false"><i class="sw sw--encino"></i>Encino</button>
+              <button type="button" role="radio" class="chip is-active" data-species="parota" aria-checked="true"><i class="sw sw--parota"></i>Parota</button>
+              <button type="button" role="radio" class="chip" data-species="nogal" aria-checked="false"><i class="sw sw--nogal"></i>Nogal</button>
+            </div>
+            <p class="hero__species-name" data-hero-species-name aria-live="polite">
+              <em>Parota</em> · <span class="mono">Enterolobium cyclocarpum</span>
+            </p>
+          </div>
+          <div class="hero__ctas" data-hero-fade>
+            <a class="btn btn--brass" href="#disena" data-magnetic><span>Diseña tu repisa</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+            <a class="btn btn--ghost" href="#coleccion" data-magnetic><span>Ver colección</span></a>
+          </div>
+        </div>
+        <a class="hero__scroll mono" href="#manifiesto" aria-label="Desliza hacia abajo">Desliza <i></i></a>
+      </section>
+
+      <!-- MARQUEE -->
+      <section class="marquee" data-theme="light" aria-hidden="true">
+        <div class="marquee__track" data-marquee>
+          <div class="marquee__row">
+            <span>Madera maciza</span><b>✦</b><span><em>Hecho a mano</em></span><b>✦</b><span>Ensamble oculto</span><b>✦</b
+            ><span><em>Aceites naturales</em></span><b>✦</b><span>Medidas a la carta</span><b>✦</b><span><em>Envíos a todo México</em></span><b>✦</b>
+          </div>
+        </div>
+      </section>
+
+      <!-- MANIFIESTO -->
+      <section class="manifesto" id="manifiesto" data-theme="light">
+        <div class="wrap">
+          <p class="label mono"><span>(01)</span> Manifiesto</p>
+          <div class="seal" aria-hidden="true" data-seal>
+            <svg viewBox="0 0 200 200">
+              <defs><path id="seal-path" d="M100 100m-78 0a78 78 0 1 1 156 0a78 78 0 1 1-156 0" /></defs>
+              <text><textPath href="#seal-path" startOffset="0">HECHO A MANO · MADERA MACIZA · MÉXICO · DESDE EL TABLÓN ·</textPath></text>
+              <g fill="none" stroke="currentColor" stroke-width="1.2">
+                <ellipse cx="100" cy="101" rx="12" ry="10.5" />
+                <ellipse cx="101" cy="100" rx="22" ry="19.5" transform="rotate(-6 100 100)" />
+                <ellipse cx="100" cy="101" rx="33" ry="29.5" transform="rotate(4 100 100)" />
+                <ellipse cx="100" cy="100" rx="44" ry="40" transform="rotate(-3 100 100)" />
+              </g>
+            </svg>
+          </div>
+          <p class="manifesto__text" data-words>
+            No hacemos muebles en serie. Elegimos cada tablón por su veta, lo cortamos a tu medida, lo lijamos a mano y lo
+            sellamos con aceites naturales. Piezas honestas, que envejecen bonito y se quedan contigo.
+          </p>
+          <figure class="manifesto__figure" data-reveal-img>
+            <div class="media media--wide">
+              <img
+                src="/img/hero-lifestyle-1400.webp"
+                srcset="/img/hero-lifestyle-800.webp 800w, /img/hero-lifestyle-1400.webp 1400w, /img/hero-lifestyle-2000.webp 2000w"
+                sizes="(min-width: 1100px) 88vw, 100vw"
+                width="2000"
+                height="1125"
+                alt="Dos repisas flotantes de nogal en un muro de cal con libros, un jarrón con eucalipto, una planta y luz de mañana."
+                loading="lazy"
+                decoding="async"
+                data-parallax
+              />
+            </div>
+            <figcaption class="mono">Repisas flotantes de nogal · 110 y 80 cm · Acabado natural</figcaption>
+          </figure>
+          <ul class="stats">
+            <li><strong><span data-count="100">100</span>%</strong><span>madera maciza, nada de aglomerado</span></li>
+            <li><strong><span data-count="20">20</span> kg</strong><span>de carga por repisa flotante</span></li>
+            <li><strong><span data-count="7">7</span>–10</strong><span>días hábiles de fabricación</span></li>
+            <li><strong><span data-count="15">15</span> min</strong><span>de instalación con plantilla</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- COLECCIÓN -->
+      <section class="collection" id="coleccion" data-theme="light">
+        <div class="collection__head wrap">
+          <p class="label mono"><span>(02)</span> Colección</p>
+          <h2 class="title" data-split>Piezas para <em>cada</em> pared</h2>
+          <p class="collection__sub">Cuatro básicos que resuelven sala, cocina, baño y estudio. Todos a tu medida.</p>
+        </div>
+        <div class="collection__viewport" data-hscroll>
+          <div class="collection__track" data-hscroll-track>
+            <article class="card" data-card>
+              <a class="card__media" href="#disena" data-config-model="flotante" data-cursor="Configurar">
+                <img
+                  src="/img/flotante-1000.webp"
+                  srcset="/img/flotante-600.webp 600w, /img/flotante-1000.webp 1000w, /img/flotante-1400.webp 1400w"
+                  sizes="(min-width: 900px) 34vw, 82vw"
+                  width="1400"
+                  height="1750"
+                  alt="Tres repisas flotantes de parota en un muro claro con un florero negro, libros y una planta."
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="card__tag mono">01</span>
+              </a>
+              <div class="card__body">
+                <h3 class="card__title">Repisa flotante</h3>
+                <p>Soporte oculto de acero. Parece que flota; aguanta como si nada.</p>
+                <div class="card__meta">
+                  <span class="mono">40–150 cm</span>
+                  <span class="card__price">desde <strong data-from-price="flotante">$590</strong></span>
+                </div>
+                <a class="link-arrow" href="#disena" data-config-model="flotante">Configurar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+              </div>
+            </article>
+            <article class="card" data-card>
+              <a class="card__media" href="#disena" data-config-model="mensula" data-cursor="Configurar">
+                <img
+                  src="/img/mensula-1000.webp"
+                  srcset="/img/mensula-600.webp 600w, /img/mensula-1000.webp 1000w, /img/mensula-1400.webp 1400w"
+                  sizes="(min-width: 900px) 34vw, 82vw"
+                  width="1400"
+                  height="1750"
+                  alt="Dos repisas de pino con ménsulas de acero negro sobre un muro verde salvia, con macetas de barro y libros."
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="card__tag mono">02</span>
+              </a>
+              <div class="card__body">
+                <h3 class="card__title">Repisa con ménsulas</h3>
+                <p>Ménsulas de acero negro mate. Honesta, industrial y a prueba de libros.</p>
+                <div class="card__meta">
+                  <span class="mono">40–150 cm</span>
+                  <span class="card__price">desde <strong data-from-price="mensula">$430</strong></span>
+                </div>
+                <a class="link-arrow" href="#disena" data-config-model="mensula">Configurar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+              </div>
+            </article>
+            <article class="card" data-card>
+              <a class="card__media" href="#disena" data-config-model="toallero" data-cursor="Configurar">
+                <img
+                  src="/img/toallero-1000.webp"
+                  srcset="/img/toallero-600.webp 600w, /img/toallero-1000.webp 1000w, /img/toallero-1400.webp 1400w"
+                  sizes="(min-width: 900px) 34vw, 82vw"
+                  width="1400"
+                  height="1750"
+                  alt="Repisa de encino con respaldo y barra de latón en un baño, con una toalla verde colgada y frascos ámbar."
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="card__tag mono">03</span>
+              </a>
+              <div class="card__body">
+                <h3 class="card__title">Repisa toallero</h3>
+                <p>Respaldo de 6 cm y barra de latón. Para el baño, la cocina o la entrada.</p>
+                <div class="card__meta">
+                  <span class="mono">40–150 cm</span>
+                  <span class="card__price">desde <strong data-from-price="toallero">$790</strong></span>
+                </div>
+                <a class="link-arrow" href="#disena" data-config-model="toallero">Configurar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+              </div>
+            </article>
+            <article class="card" data-card>
+              <a class="card__media" href="#" data-wa="Hola VOLCHE, quiero cotizar un tablón a medida (cubierta / barra / escritorio)." data-cursor="Cotizar">
+                <img
+                  src="/img/tablones-1000.webp"
+                  srcset="/img/tablones-800.webp 800w, /img/tablones-1000.webp 1000w, /img/tablones-1400.webp 1400w"
+                  sizes="(min-width: 900px) 34vw, 82vw"
+                  width="1800"
+                  height="1200"
+                  alt="Cuatro tablones de madera maciza lado a lado: pino, encino, parota y nogal."
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span class="card__tag mono">04</span>
+              </a>
+              <div class="card__body">
+                <h3 class="card__title">Tablones a medida</h3>
+                <p>Cubiertas, barras y escritorios en madera maciza. Tú dices la medida.</p>
+                <div class="card__meta">
+                  <span class="mono">Hasta 240 cm</span>
+                  <span class="card__price">Cotización</span>
+                </div>
+                <a class="link-arrow" href="#" data-wa="Hola VOLCHE, quiero cotizar un tablón a medida (cubierta / barra / escritorio).">Cotizar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="collection__progress wrap" aria-hidden="true"><i data-hscroll-progress></i></div>
+      </section>
+
+      <!-- PROCESO / ENSAMBLE (3D con scroll) -->
+      <section class="process" id="ensamble" data-theme="dark">
+        <div class="process__pin" data-process>
+          <div class="process__head">
+            <p class="label mono"><span>(03)</span> El proceso</p>
+            <h2 class="title title--sm">Así nace <em>tu repisa</em></h2>
+          </div>
+          <div class="process__stage" data-cursor="Desliza">
+            <canvas class="process__canvas" data-process-canvas aria-hidden="true"></canvas>
+            <div class="callouts" data-callouts aria-hidden="true"></div>
+          </div>
+          <ol class="process__steps" data-steps>
+            <li class="step is-active" data-step>
+              <span class="step__num mono">01</span>
+              <h3>El tablón</h3>
+              <p>Todo empieza con madera maciza secada lentamente hasta 8–12&nbsp;% de humedad, para que no se tuerza en tu casa.</p>
+            </li>
+            <li class="step" data-step>
+              <span class="step__num mono">02</span>
+              <h3>Corte y cepillado</h3>
+              <p>Lo dimensionamos a tu medida exacta y lo cepillamos por las cuatro caras hasta dejarlo perfectamente plano.</p>
+            </li>
+            <li class="step" data-step>
+              <span class="step__num mono">03</span>
+              <h3>Lijado a mano</h3>
+              <p>Redondeamos cantos y lijamos en tres pasadas, de grano 80 a 220. Al tacto se siente como seda.</p>
+            </li>
+            <li class="step" data-step>
+              <span class="step__num mono">04</span>
+              <h3>Aceite natural</h3>
+              <p>Linaza y cera de abeja: resaltan la veta y la protegen sin plástico ni olores fuertes.</p>
+            </li>
+            <li class="step" data-step>
+              <span class="step__num mono">05</span>
+              <h3>Ensamble oculto</h3>
+              <p>Placa de acero con varillas de 12&nbsp;mm que entran en barrenos ocultos. Cero tornillos a la vista.</p>
+            </li>
+            <li class="step" data-step>
+              <span class="step__num mono">06</span>
+              <h3>Lista para tu pared</h3>
+              <p>Soporta hasta 20&nbsp;kg. Llega con plantilla, taquetes y pijas: se instala en 15 minutos.</p>
+            </li>
+          </ol>
+          <div class="process__progress" aria-hidden="true">
+            <span class="mono" data-step-count>01 / 06</span>
+            <div class="process__bar"><i data-process-bar></i></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONFIGURADOR -->
+      <section class="config" id="disena" data-theme="light">
+        <div class="wrap config__head">
+          <p class="label mono"><span>(04)</span> Configurador</p>
+          <h2 class="title" data-split>Diseña <em>la tuya</em></h2>
+          <p class="config__sub">Gira, ajusta y compara. El precio se actualiza al instante y te lo confirmamos por WhatsApp.</p>
+        </div>
+        <div class="config__grid wrap">
+          <div class="config__viewer" data-cursor="Gira">
+            <canvas class="config__canvas" data-config-canvas aria-label="Vista 3D de tu repisa" role="img"></canvas>
+            <div class="dims" data-dims aria-hidden="true">
+              <span class="dim" data-dim="length">90 cm</span>
+              <span class="dim" data-dim="depth">20 cm</span>
+              <span class="dim" data-dim="thickness">3.8 cm</span>
+            </div>
+            <div class="config__viewer-ui">
+              <button class="icon-btn" type="button" data-config-reset aria-label="Centrar vista">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7" /><path d="M3 4v5h5" /></svg>
+              </button>
+              <button class="toggle toggle--btn mono" type="button" data-config-explode aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /><path d="M9 4l3-2 3 2M9 20l3 2 3-2" /></svg>
+                <span>Ver herraje</span>
+              </button>
+              <label class="toggle mono"><input type="checkbox" data-config-dimtoggle checked /> <span>Medidas</span></label>
+            </div>
+            <p class="config__badge mono" data-config-badge>Parota · Natural</p>
+          </div>
+
+          <form class="panel" data-config-form onsubmit="return false">
+            <fieldset class="field">
+              <legend class="field__label mono">Modelo</legend>
+              <div class="seg" role="radiogroup">
+                <label><input type="radio" name="model" value="flotante" checked /><span>Flotante</span></label>
+                <label><input type="radio" name="model" value="mensula" /><span>Ménsula</span></label>
+                <label><input type="radio" name="model" value="toallero" /><span>Toallero</span></label>
+              </div>
+              <p class="field__hint" data-model-hint>Soporte oculto de acero</p>
+            </fieldset>
+
+            <fieldset class="field">
+              <legend class="field__label mono">Madera</legend>
+              <div class="swatches" role="radiogroup">
+                <label class="swatch"><input type="radio" name="species" value="pino" /><i class="sw sw--pino"></i><span>Pino</span></label>
+                <label class="swatch"><input type="radio" name="species" value="encino" /><i class="sw sw--encino"></i><span>Encino</span></label>
+                <label class="swatch"><input type="radio" name="species" value="parota" checked /><i class="sw sw--parota"></i><span>Parota</span></label>
+                <label class="swatch"><input type="radio" name="species" value="nogal" /><i class="sw sw--nogal"></i><span>Nogal</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="field">
+              <legend class="field__label mono">Acabado</legend>
+              <div class="seg" role="radiogroup">
+                <label><input type="radio" name="finish" value="natural" checked /><span>Natural</span></label>
+                <label><input type="radio" name="finish" value="tostado" /><span>Tostado</span></label>
+                <label><input type="radio" name="finish" value="ceniza" /><span>Ceniza</span></label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label class="field__label mono" for="cfg-length">Largo <output data-length-out for="cfg-length">90 cm</output></label>
+              <input class="range" id="cfg-length" type="range" name="length" min="40" max="150" step="5" value="90" />
+              <div class="range__scale mono" aria-hidden="true"><span>40</span><span>95</span><span>150 cm</span></div>
+            </div>
+
+            <fieldset class="field field--split">
+              <div>
+                <legend class="field__label mono">Fondo</legend>
+                <div class="seg seg--sm" role="radiogroup" data-depths>
+                  <label><input type="radio" name="depth" value="15" /><span>15</span></label>
+                  <label><input type="radio" name="depth" value="20" checked /><span>20</span></label>
+                  <label><input type="radio" name="depth" value="25" /><span>25</span></label>
+                  <label><input type="radio" name="depth" value="30" /><span>30</span></label>
+                </div>
+              </div>
+              <div>
+                <span class="field__label mono">Grosor</span>
+                <div class="seg seg--sm" role="radiogroup" aria-label="Grosor" data-thicks>
+                  <label><input type="radio" name="thickness" value="2.5" /><span>2.5</span></label>
+                  <label><input type="radio" name="thickness" value="3.8" checked /><span>3.8</span></label>
+                  <label><input type="radio" name="thickness" value="5" /><span>5</span></label>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="field field--qty">
+              <span class="field__label mono">Cantidad</span>
+              <div class="stepper">
+                <button type="button" data-qty="-1" aria-label="Menos">−</button>
+                <input type="number" name="qty" min="1" max="20" value="1" inputmode="numeric" aria-label="Cantidad" />
+                <button type="button" data-qty="1" aria-label="Más">+</button>
+              </div>
+            </div>
+
+            <div class="panel__total">
+              <div>
+                <p class="mono panel__total-label">Precio estimado</p>
+                <p class="panel__price" data-price aria-live="polite">$1,340</p>
+                <p class="panel__note" data-price-note>Precio de referencia. Fabricación en 7–10 días hábiles.</p>
+              </div>
+            </div>
+            <div class="panel__actions">
+              <a class="btn btn--ink btn--block" href="#" data-config-wa data-magnetic>
+                <svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
+                <span>Pedir por WhatsApp</span>
+              </a>
+              <button class="btn btn--line btn--block" type="button" data-config-copy><span>Copiar especificaciones</span></button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- MADERAS -->
+      <section class="woods" id="maderas" data-theme="dark">
+        <div class="wrap woods__head">
+          <p class="label mono"><span>(05)</span> Maderas</p>
+          <h2 class="title" data-split>Cada madera tiene <em>su carácter</em></h2>
+        </div>
+        <div class="woods__list wrap" data-woods>
+          <article class="wood is-open" data-wood="parota" tabindex="0">
+            <img class="wood__img" src="/img/macro-parota-900.webp" srcset="/img/macro-parota-600.webp 600w, /img/macro-parota-900.webp 900w, /img/macro-parota-1200.webp 1200w" sizes="(min-width: 900px) 50vw, 100vw" width="1200" height="1500" alt="Detalle macro de la esquina de una tabla de parota con luz rasante." loading="lazy" decoding="async" />
+            <div class="wood__shade"></div>
+            <h3 class="wood__name">Parota</h3>
+            <div class="wood__info">
+              <p class="wood__latin mono">Enterolobium cyclocarpum</p>
+              <p class="wood__blurb">La madera icónica de México. Vetas amplias, tonos miel y un brillo dorado bajo la luz.</p>
+              <dl class="wood__specs">
+                <div><dt class="mono">Tono</dt><dd>Café miel</dd></div>
+                <div><dt class="mono">Dureza</dt><dd><span class="meter" style="--v: 3"></span></dd></div>
+                <div><dt class="mono">Ideal para</dt><dd>Piezas protagonistas</dd></div>
+              </dl>
+              <a class="link-arrow" href="#disena" data-config-species="parota">Verla en 3D <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+            </div>
+          </article>
+          <article class="wood" data-wood="nogal" tabindex="0">
+            <img class="wood__img" src="/img/macro-nogal-900.webp" srcset="/img/macro-nogal-600.webp 600w, /img/macro-nogal-900.webp 900w, /img/macro-nogal-1200.webp 1200w" sizes="(min-width: 900px) 50vw, 100vw" width="1200" height="1500" alt="Detalle macro de la esquina de una tabla de nogal con luz rasante." loading="lazy" decoding="async" />
+            <div class="wood__shade"></div>
+            <h3 class="wood__name">Nogal</h3>
+            <div class="wood__info">
+              <p class="wood__latin mono">Juglans spp.</p>
+              <p class="wood__blurb">Oscuro, sobrio y elegante. Su figura ondulada gana profundidad con cada año.</p>
+              <dl class="wood__specs">
+                <div><dt class="mono">Tono</dt><dd>Chocolate profundo</dd></div>
+                <div><dt class="mono">Dureza</dt><dd><span class="meter" style="--v: 3"></span></dd></div>
+                <div><dt class="mono">Ideal para</dt><dd>Salas y estudios</dd></div>
+              </dl>
+              <a class="link-arrow" href="#disena" data-config-species="nogal">Verla en 3D <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+            </div>
+          </article>
+          <article class="wood" data-wood="encino" tabindex="0">
+            <img class="wood__img" src="/img/macro-encino-900.webp" srcset="/img/macro-encino-600.webp 600w, /img/macro-encino-900.webp 900w, /img/macro-encino-1200.webp 1200w" sizes="(min-width: 900px) 50vw, 100vw" width="1200" height="1500" alt="Detalle macro de la esquina de una tabla de encino con luz rasante." loading="lazy" decoding="async" />
+            <div class="wood__shade"></div>
+            <h3 class="wood__name">Encino</h3>
+            <div class="wood__info">
+              <p class="wood__latin mono">Quercus spp.</p>
+              <p class="wood__blurb">El roble mexicano: duro, estable y con un poro que se siente al tacto. Para toda la vida.</p>
+              <dl class="wood__specs">
+                <div><dt class="mono">Tono</dt><dd>Dorado</dd></div>
+                <div><dt class="mono">Dureza</dt><dd><span class="meter" style="--v: 4"></span></dd></div>
+                <div><dt class="mono">Ideal para</dt><dd>Cocina y libreros</dd></div>
+              </dl>
+              <a class="link-arrow" href="#disena" data-config-species="encino">Verla en 3D <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+            </div>
+          </article>
+          <article class="wood" data-wood="pino" tabindex="0">
+            <img class="wood__img" src="/img/macro-pino-900.webp" srcset="/img/macro-pino-600.webp 600w, /img/macro-pino-900.webp 900w, /img/macro-pino-1200.webp 1200w" sizes="(min-width: 900px) 50vw, 100vw" width="1200" height="1500" alt="Detalle macro de la esquina de una tabla de pino con nudos y luz rasante." loading="lazy" decoding="async" />
+            <div class="wood__shade"></div>
+            <h3 class="wood__name">Pino</h3>
+            <div class="wood__info">
+              <p class="wood__latin mono">Pinus spp.</p>
+              <p class="wood__blurb">Claro y cálido, con nudos que cuentan su historia. Ligero, noble y el más accesible.</p>
+              <dl class="wood__specs">
+                <div><dt class="mono">Tono</dt><dd>Miel claro</dd></div>
+                <div><dt class="mono">Dureza</dt><dd><span class="meter" style="--v: 2"></span></dd></div>
+                <div><dt class="mono">Ideal para</dt><dd>Estilo nórdico</dd></div>
+              </dl>
+              <a class="link-arrow" href="#disena" data-config-species="pino">Verla en 3D <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg></a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CÓMO PEDIR -->
+      <section class="order" id="como-pedir" data-theme="light">
+        <div class="wrap">
+          <p class="label mono"><span>(06)</span> Cómo pedir</p>
+          <h2 class="title" data-split>De tu idea a tu pared en <em>4 pasos</em></h2>
+          <div class="order__grid">
+            <ol class="order__steps">
+              <li data-reveal><span class="mono">01</span><h3>Diseña</h3><p>Elige modelo, madera, acabado y medida en el configurador.</p></li>
+              <li data-reveal><span class="mono">02</span><h3>Cotiza</h3><p>Te confirmamos precio final, envío y tiempos por WhatsApp.</p></li>
+              <li data-reveal><span class="mono">03</span><h3>Fabricamos</h3><p>Cortamos, lijamos y aceitamos tu pieza en 7 a 10 días hábiles.</p></li>
+              <li data-reveal><span class="mono">04</span><h3>Instala</h3><p>Llega con soporte, tornillería y plantilla. Quince minutos y listo.</p></li>
+            </ol>
+            <figure class="order__kit" data-reveal-img>
+              <div class="media media--square">
+                <img src="/img/kit-1000.webp" srcset="/img/kit-600.webp 600w, /img/kit-1000.webp 1000w, /img/kit-1400.webp 1400w" sizes="(min-width: 900px) 40vw, 100vw" width="1600" height="1600" alt="Kit de instalación sobre lino: soporte oculto de acero, pijas, taquetes, plantilla de papel y muestras de madera." loading="lazy" decoding="async" data-parallax />
+              </div>
+              <figcaption>
+                <p class="mono">Incluido en cada pedido</p>
+                <ul>
+                  <li>Soporte oculto de acero o ménsulas</li>
+                  <li>Taquetes y pijas para muro sólido</li>
+                  <li>Plantilla de instalación</li>
+                  <li>Guía de cuidado de la madera</li>
+                </ul>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="faq" id="preguntas" data-theme="light">
+        <div class="wrap faq__grid">
+          <div>
+            <p class="label mono"><span>(07)</span> Preguntas</p>
+            <h2 class="title title--sm" data-split>Lo que siempre <em>nos preguntan</em></h2>
+          </div>
+          <div class="faq__list" data-faq>
+            <details>
+              <summary>¿Hacen medidas especiales?<i></i></summary>
+              <p>Sí. Todo se fabrica sobre pedido: de 40 a 150 cm en el configurador y medidas mayores bajo cotización.</p>
+            </details>
+            <details>
+              <summary>¿Cuánto peso soportan?<i></i></summary>
+              <p>Una repisa flotante bien instalada en muro de concreto o tabique soporta hasta 20 kg. En tablaroca recomendamos taquetes especiales o la versión con ménsulas.</p>
+            </details>
+            <details>
+              <summary>¿Hacen envíos?<i></i></summary>
+              <p>Enviamos a todo México con empaque protegido. El costo depende de la medida y del destino; te lo confirmamos antes de pagar.</p>
+            </details>
+            <details>
+              <summary>¿Cuánto tarda mi pedido?<i></i></summary>
+              <p>Fabricamos en 7 a 10 días hábiles, más el tiempo de envío a tu ciudad.</p>
+            </details>
+            <details>
+              <summary>¿Cómo cuido la madera?<i></i></summary>
+              <p>Limpia con un paño seco o apenas húmedo. Cada 6 a 12 meses puedes renovar con una capa delgada de aceite; te mandamos la guía.</p>
+            </details>
+            <details>
+              <summary>¿Puedo ver mi pieza antes del envío?<i></i></summary>
+              <p>Claro. Te enviamos fotos y video de tu pieza terminada antes de empacarla.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA FINAL -->
+      <section class="cta" data-theme="dark">
+        <img class="cta__bg" src="/img/macro-nogal-1200.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" data-parallax />
+        <div class="cta__inner wrap">
+          <p class="label mono"><span>(08)</span> Hablemos</p>
+          <h2 class="cta__title" data-split>¿Tienes una pared <em>vacía?</em></h2>
+          <p class="cta__sub">Cuéntanos la medida y te mandamos propuesta en menos de 24 horas.</p>
+          <a class="btn btn--brass btn--lg" href="#" data-wa="Hola VOLCHE, tengo una pared vacía y quiero una propuesta." data-magnetic>
+            <svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
+            <span>Escríbenos por WhatsApp</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" data-theme="dark">
+      <div class="wrap footer__top">
+        <div class="footer__col">
+          <p class="mono footer__label">Taller</p>
+          <p>Repisas y muebles de madera maciza.<br />Hecho a mano en México.</p>
+        </div>
+        <div class="footer__col">
+          <p class="mono footer__label">Navegación</p>
+          <a href="#coleccion">Colección</a>
+          <a href="#ensamble">Proceso</a>
+          <a href="#disena">Diseña la tuya</a>
+          <a href="#maderas">Maderas</a>
+        </div>
+        <div class="footer__col" data-contact>
+          <p class="mono footer__label">Contacto</p>
+          <a href="#" data-wa="Hola VOLCHE 👋">WhatsApp</a>
+          <a href="#" data-instagram hidden>Instagram</a>
+          <a href="#" data-email hidden>Correo</a>
+        </div>
+        <a class="footer__top-link mono" href="#inicio">Volver arriba ↑</a>
+      </div>
+      <p class="footer__word" aria-hidden="true">VOLCHE</p>
+      <div class="wrap footer__bottom mono">
+        <span>© <span data-year>2026</span> VOLCHE</span>
+        <span>Madera maciza · Aceites naturales · Hecho a mano</span>
+      </div>
+    </footer>
+
+    <a class="wa-float" href="#" data-wa="Hola VOLCHE, quiero información sobre sus repisas." aria-label="Escríbenos por WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
+    </a>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
