@@ -393,7 +393,7 @@ em {
 .sw--pino { --a: #dfbb87; --b: #bd8246; }
 .sw--encino { --a: #caa06a; --b: #9f7243; }
 .sw--parota { --a: #98653e; --b: #6e4428; }
-.sw--nogal { --a: #6d4930; --b: #45291a; }
+.sw--nogal { --a: #5e4131; --b: #36241a; }
 
 /* ------------------------------------------------------------ preloader --- */
 .loader {
@@ -2708,15 +2708,7 @@ em {
   animation: kenburns 14s ease-in-out 1s infinite alternate;
 }
 
-.wood__toggle {
-  font: inherit;
-  color: inherit;
-  letter-spacing: inherit;
-  line-height: inherit;
-  text-align: inherit;
-  cursor: pointer;
-}
-
-.wood.is-open .wood__toggle {
-  cursor: default;
+.wood:has(.wood__toggle:focus-visible) {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
 }

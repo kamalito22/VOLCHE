@@ -16,14 +16,14 @@ export function initWoods() {
     const name = it.querySelector('.wood__name');
     const info = it.querySelector('.wood__info');
     info.id ||= `wood-info-${i}`;
+    // botón para teclado y lectores de pantalla (el panel entero responde al puntero)
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.className = 'wood__toggle';
-    btn.textContent = name.textContent;
+    btn.className = 'wood__toggle sr-only';
+    btn.textContent = `Ver madera: ${name.textContent}`;
     btn.setAttribute('aria-controls', info.id);
     btn.setAttribute('aria-expanded', String(it.classList.contains('is-open')));
-    name.textContent = '';
-    name.appendChild(btn);
+    it.prepend(btn);
     if (fine) {
       it.addEventListener('pointerenter', () => {
         clearTimeout(t);

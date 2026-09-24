@@ -189,7 +189,7 @@ function heroIntro() {
     gsap.from(split.chars, { yPercent: 110, duration: 1.3, ease: 'expo.out', stagger: 0.035, delay: 0.1 });
   });
   gsap.from('[data-hero-fade]', { y: 24, autoAlpha: 0, duration: 1.1, ease: 'expo.out', stagger: 0.08, delay: 0.55 });
-  gsap.from('.nav', { yPercent: -100, duration: 1.1, ease: 'expo.out', delay: 0.4 });
+  gsap.from('.nav__brand, .nav__links a, .nav__cta, .nav__burger', { y: -28, autoAlpha: 0, duration: 1, ease: 'expo.out', stagger: 0.04, delay: 0.45, clearProps: 'transform,opacity,visibility' });
 }
 
 // refresco tras cargar imágenes (cambian alturas)

@@ -508,8 +508,8 @@ def scene_macro(preview, species):
 def scene_kit(preview):
     """Flat lay del kit de instalación: soporte oculto, taquetes, pijas, plantilla."""
     V.setup_render(*((800, 800) if preview else (1600, 1600)), samples=48 if preview else 128,
-                   threshold=0.015, exposure=0.15)
-    lin = V.fabric("lino", "#e9e1d4", rough=0.95, sheen=0.3, scale=420.0, bump=0.35)
+                   threshold=0.015, exposure=-0.1)
+    lin = V.fabric("lino", "#d9cdb9", rough=0.95, sheen=0.3, scale=420.0, bump=0.35)
     V.plane("mesa", 3, 3, lin, (0, 0, 0))
     steel = V.powder_coat()
     # placa + varillas (soporte oculto)
@@ -520,7 +520,7 @@ def scene_kit(preview):
     for xx in (-0.27, -0.09, 0.09, 0.27):
         V.cylinder(f"h{xx}", 0.0035, 0.0006, holes, (xx, 0.12, 0.004))
     zinc = V.metal("zinc", "#8e9496", 0.3)
-    plastic = V.principled("taquete", "#d9d2c5", 0.45, sss=0.2)
+    plastic = V.principled("taquete", "#8f8a82", 0.45, sss=0.1)
     for i in range(4):
         x0 = -0.12 + i * 0.08
         # pija
